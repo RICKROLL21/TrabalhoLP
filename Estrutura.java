@@ -30,23 +30,21 @@ public void menuInicial() {
 
 
 public void menuCriacaoArvoreGen() {
-	
-	Elemento elemento = new Elemento();
-	String n;
-	int id, idade;
+	String n=null;
+	int id=0, idade=0;	
 	int	escolha = 0;
-	
+	Elemento e = new Elemento(id,idade,n);
 	
 	do {
 	
 	System.out.println("\nDigite o nome do seu familiar. (Começando pelo avô até seus familiares mais recentes)");
 	n = ler.next();
-	elemento.setNome(n);
+	e.setNome(n);
 	
 	
 	System.out.println("Digite a idade.");
 	idade = ler.nextInt();
-	elemento.setIdade(idade);
+	e.setIdade(idade);
 	
 	System.out.println("Para concluir e sair deste menu carregue 0");
 	escolha= ler.nextInt();

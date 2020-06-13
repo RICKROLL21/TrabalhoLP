@@ -8,7 +8,7 @@ public interface ArvoreNAry {
 		 * @return  uma referencia para o novo no raiz da arvore
 		 * @throws  IllegalStateException se a arvore nao estiver vazia
 		 */
-		public NoArvore inserir( int num );
+		public Arvore inserir( int num );
 		
 		
 		/**
@@ -19,7 +19,7 @@ public interface ArvoreNAry {
 		 * @return      uma referencia para o no criado na arvore
 		 * @throws      NullPointerException se o pai for igual a null 
 		 */
-		public NoArvore inserir( int num, NoArvore pai );
+		public Arvore inserir( int num, Arvore pai );
 		
 		
 		/**
