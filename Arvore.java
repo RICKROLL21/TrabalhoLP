@@ -3,71 +3,32 @@ import java.util.ArrayList;
 
 	public class Arvore implements ArvoreNAry {
 
-
-	    private int valor;
+	    private Elemento raiz;
+	    private int tamanho;
 	    
-	    
-
-	    private ArrayList <Elemento> filhos;
-
-	    
-
-	    public int getValor() {
-	        return valor;
-	    }
-	    public void setValor(int valor) {
-	        this.valor = valor;
-	    }
-	    
-	    
-
-	    public ArrayList<Elemento> getFilhos() {
-	        return filhos;
-	    }
-	    
-	    
-	    
-	    public void addFilho (Elemento filho) {
-	        filhos.add(0,filho);
-	    }
-
-	    
-	    
-	public void removeFilho (Elemento filho) {
-
-	        filhos.remove(filho);
-
-	    }
-
-
-
-	public void removeindex (int filho) {
-
-	    filhos.remove(filho);
-
-	}
-
-
-	public void Elemento (int valor) {
-
-	    this.valor = valor;
-
-	    filhos  = new ArrayList();
-
-	}
+	   public Elemento getElemento(id){
 		
-		
+		   return;
+	   }
+	    
+
+	    
+
+	    public Arvore() {
+	    	
+			// TODO Auto-generated constructor stub
+		}
+	    		
 		
 	    // Implementar a Interface GeralTree
-	    private Arvore raiz;
-	    private int tamanho;
-
+	 
+		
 	    @Override
-	    public Arvore inserir( int num ) {
+	    public Elemento inserir(int id, int idade, String nome) throws IllegalStateException { 
 	        if ( raiz != null) 	
 	            throw new IllegalStateException();
 
-	        raiz = new Arvore(num);
+	        raiz = new Elemento(id, idade, nome);
 	        tamanho = 1; 
 	        
 	        return raiz;
@@ -75,20 +36,26 @@ import java.util.ArrayList;
 	        
 	        
 	    @Override
-	    public Arvore inserir( int num, Arvore pai ) {
-	        if ( pai == null) 
+	    public Elemento inserir(Elemento pai, int id, int idade, String nome) {
+	        if ( pai == null) {
 	            throw new NullPointerException();
-	        
-	        Arvore temporario = new Arvore(num);
-	        pai.addFilho(temporario);
+	    	}else{
+	        Elemento temporario = new Elemento(id, idade, nome);
+	        pai.getFilhos().add(temporario);
 	        tamanho ++; 
 
 	        return temporario;
+	    	}
 	    }
-
-		public int[] preOrder() {
-			int[] nos = new int[tamanho];
-
+	    
+	    
+	    
+	    
+	    
+		public Elemento[] imprimirPreOrder() {
+			Elemento[] nos = new Elemento[tamanho];
+			
+			
 	        Stack<Elemento> nosVisitar = new Stack<>();
 	        nosVisitar.push(raiz);
 
@@ -97,9 +64,9 @@ import java.util.ArrayList;
 	        	Elemento no = nosVisitar.pop();
 	            if (no == null)
 	                continue;
-	            nos[i] = no.getValor();
+	            nos[i] = no;
 	            
-	            for(NoArvore filho : no.getFilhos()){
+	            for(Elemento filho : no.getFilhos()){
 	                nosVisitar.push(filho);
 	            }
 	            i++;
@@ -107,6 +74,11 @@ import java.util.ArrayList;
 
 	        return nos;
 			
+		}
+		@Override
+		public int[] preOrder() {
+			// TODO Auto-generated method stub
+			return null;
 		}
 	}
 

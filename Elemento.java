@@ -1,11 +1,11 @@
+import java.util.ArrayList;
+
 public class Elemento {
 	
 	
 	private int idade, id;
 	private String nome;
-	private Elemento elemento;
-	private Elemento esq;
-	private Elemento dir;
+	private ArrayList <Elemento> filhos;
 	
 	// Acessores
 	
@@ -33,28 +33,15 @@ public class Elemento {
 	}
 	
 	
-	public Elemento getElemento() {
-		return elemento;
+	public ArrayList <Elemento> getFilhos() {
+		return filhos;
 	}
-	public void setElemento(Elemento elemento) {
-		this.elemento = elemento;
+	public void setFilhos(ArrayList <Elemento> filhos) {
+		this.filhos = filhos;
 	}
 	
-
-	public Elemento getEsq() {
-		return esq;
-	}
-	public void setEsq(Elemento esq) {
-		this.esq = esq;
-	}
-
 	
-	public Elemento getDir() {
-		return dir;
-	}
-	public void setDir(Elemento dir) {
-		this.dir = dir;
-	}
+	
 	
 	
 	
@@ -67,15 +54,12 @@ public class Elemento {
 		this.id = idElemento;
 	}
 	
-	public Elemento(Elemento elemento) {
-
-		this.elemento = elemento;
-	}
 	
 	@Override
 	public String toString() {
 		return "[id=" + id + ", nome=" + nome + ", idade=" + idade + "]";
 	}
+	
 	    
 	 
 	
