@@ -1,15 +1,16 @@
 import java.util.Stack;
 import java.util.ArrayList;
 
+
 	public class Arvore implements ArvoreNAry {
 
 	    private Elemento raiz;
 	    private int tamanho;
 	    
-	   public Elemento getElemento(id){
+	   public Elemento procurar(int id, Elemento no){
 		
-		   return;
-	   }
+		
+		}
 	    
 
 	    
@@ -23,6 +24,9 @@ import java.util.ArrayList;
 	    // Implementar a Interface GeralTree
 	 
 		
+	    
+	    
+	    //Só raiz
 	    @Override
 	    public Elemento inserir(int id, int idade, String nome) throws IllegalStateException { 
 	        if ( raiz != null) 	
@@ -34,7 +38,7 @@ import java.util.ArrayList;
 	        return raiz;
 	        }
 	        
-	        
+	    //Filhos    
 	    @Override
 	    public Elemento inserir(Elemento pai, int id, int idade, String nome) {
 	        if ( pai == null) {

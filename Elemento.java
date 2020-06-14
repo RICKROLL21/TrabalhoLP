@@ -41,11 +41,6 @@ public class Elemento {
 	}
 	
 	
-	
-	
-	
-	
-	
 	// Construtor
 	public Elemento (int idElemento,int idadeElemento, String nomeElemento) {
 	
