@@ -104,9 +104,9 @@ public class Elemento {
 	}
 	private Elemento getElementoRecursiveNetos(Elemento elemento, int indexDoArrayListNeto){
 	    if(elemento.getId() == id) return elemento;
-	    for(Elemento filho : elemento.getFilhos()){
-	        Elemento temp = getElementoRecursiveFilhos(filho,indexDoArrayListNeto);
-	        
+	    for(Elemento netos : elemento.getNetos()){
+	        Elemento temp = getElementoRecursiveNetos(netos,indexDoArrayListNeto);
+	        if(temp != null && temp.getId() == indexDoArrayListNeto) return netos;
 	    }
 	    return null;
 	}
