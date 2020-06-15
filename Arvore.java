@@ -7,7 +7,7 @@ import java.util.ArrayList;
 	    private Elemento raiz;
 	    private int tamanho;
 	    
-	   public Elemento procurar(int id, Elemento no){
+	  /* public Elemento procurar(int id, Elemento no){
 		   if (no == null){
 		        return null;
 		    }else {
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 	            System.out.println(no.getValor()==id);
 	    }
 	    return no;
-	    }
+	    }*/
 		
 		
 	    

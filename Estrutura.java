@@ -96,7 +96,7 @@ public void menuFilho() {
 		idade = ler.nextInt();
 		e.setIdade(idade);
 		
-		System.out.println("Para continuar presse 1!");
+		System.out.println("Para continuar prima 1!");
 		escolha=ler.nextInt();
 		
 		switch(escolha){
@@ -198,7 +198,7 @@ public void menuNetoTio() {
 		idade = ler.nextInt();
 		e.setIdade(idade);
 
-		System.out.println("Para continuar presse 1!");
+		System.out.println("Para continuar prima 1!");
 		escolha=ler.nextInt();
 		
 		switch(escolha){

@@ -15,7 +15,7 @@ public class Elemento {
 	}
 	
 	public Elemento setRaiz(Elemento raiz) {
-		this.raiz = raiz;
+		return this.raiz = raiz;
 	}
 	
 	public int getIdade() {
@@ -65,10 +65,9 @@ public class Elemento {
 	}
 	
 	
-	public Elemento getElemento(int id){
+/*	public Elemento getElemento(int id){
 	    return getElementoRecursive(raiz,id);
 	}
-
 
 	private Elemento getElementoRecursive(Elemento Node, int id){
 	    if(Elemento.getId() == id) return Elemento;
@@ -77,7 +76,7 @@ public class Elemento {
 	        if(temp != null && temp.getId() == id) return filho;
 	    }
 	    return null;
-	}
+	}*/
 	    
 	 
 	
