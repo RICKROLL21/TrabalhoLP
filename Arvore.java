@@ -1,30 +1,13 @@
 import java.util.Stack;
 import java.util.ArrayList;
-
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.List;
 
 	public class Arvore implements ArvoreNAry {
 
 	    private Elemento raiz;
 	    private int tamanho;
-	    
-	/*   public Elemento procurar(int id,  Arraylist <Elemento> arrayAPassar){
-		   if (arrayAPassar == null){
-		        return null;
-		    }else {
-		    	if (arrayAPassar.getId()==id){
-		            return procurar(id, raiz.getFilhos());
-		    }else if (arrayAPassar.getFilhos()==id){
-	            return procurar(id, arrayAPassar.getFilhos());
-	        }else{
-	            System.out.println(arrayAPassar.getValor()==id);
-	    }
-	    return arrayAPassar;
-	    }
-	   }*/
-		
-		
-	 
-
 	    
 
 	    public Arvore() {
@@ -34,9 +17,6 @@ import java.util.ArrayList;
 	    		
 		
 	    // Implementar a Interface GeralTree
-	 
-		
-	    
 	    
 	    //Só raiz
 	    @Override
@@ -67,35 +47,22 @@ import java.util.ArrayList;
 	    
 	    
 	    
-	    
-		public Elemento[] imprimirPreOrder() {
-			Elemento[] nos = new Elemento[tamanho];
-			
-			
-	        Stack<Elemento> nosVisitar = new Stack<>();
-	        nosVisitar.push(raiz);
-
-	        int i = 0;
-	        while (!nosVisitar.empty()) {
-	        	Elemento no = nosVisitar.pop();
-	            if (no == null)
-	                continue;
-	            nos[i] = no;
-	            
-	            for(Elemento filho : no.getFilhos()){
-	                nosVisitar.push(filho);
-	            }
-	            i++;
+	    List<Elemento> traverssia()
+	    { 
+	        Queue<Elemento> queue = new LinkedList<Elemento>(); 
+	    List<Elemento> lista = new LinkedList<Elemento>();
+	        queue.add(raiz); 
+	        while (!queue.isEmpty())
+	        { 
+	            Elemento tempNode = queue.poll();
+	            lista.add(tempNode);
+	          for(Elemento filho : tempNode.getFilhos()){
+	                queue.add(filho); 
 	        }
 
-	        return nos;
-			
-		}
-		@Override
-		public int[] preOrder() {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	        } 
+	    return lista;
+	    }
 
 
 		@Override
@@ -107,6 +74,13 @@ import java.util.ArrayList;
 
 		@Override
 		public Elemento getElementoRecursiveNetos(Elemento elemento, int indexDoArrayListNeto) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+		@Override
+		public int[] preOrder() {
 			// TODO Auto-generated method stub
 			return null;
 		}

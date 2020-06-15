@@ -13,13 +13,7 @@ public class Main {
 		Estrutura es = new Estrutura();
 		es.menuInicial();
 		
-		
-		
-		
-		
-		
-		
-		
+		System.out.println(el.getFilhos().toString());
 	}
 
 

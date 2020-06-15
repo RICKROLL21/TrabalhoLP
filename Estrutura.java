@@ -78,11 +78,12 @@ public void menuCriacaoArvoreGen() {
 	
 }
 public void menuArvoreGenealogica() {
-	
+	Arvore impLista = new Arvore();
+	impLista.traverssia();
 	int escolha;
 	do {
 		
-	System.out.println();//mostrar a arvore
+	System.out.println(impLista.traverssia());//mostrar a arvore
 	System.out.println("\n0-Voltar ao menu inicial\n");
 	escolha=ler.nextInt();	
 	
