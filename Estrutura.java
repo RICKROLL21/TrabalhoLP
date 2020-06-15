@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -11,7 +12,7 @@ public void menuInicial() {
 	
 	do {
 		System.out.println("\n1-Iniciar Programa");
-		System.out.println("2-Ver árvore genealógica");
+		System.out.println("2-Ver Árvore genealógica");
 		System.out.println("0-Sair do Programa \n");
 		escolha=ler.nextInt();
 		
@@ -29,8 +30,8 @@ public void menuInicial() {
 public void menuCriacaoArvoreGen() {
 	String n=null;
 	int id=0, idade=0;	
-	int	escolha = 0;
-	Elemento e = new Elemento(id,idade,n);
+	int	escolha = 0, numfilhos = 0;
+	Elemento e = new Elemento();
 	
 	do {
 	
@@ -38,13 +39,32 @@ public void menuCriacaoArvoreGen() {
 	n = ler.next();
 	e.setNome(n);
 	
-	
 	System.out.println("Digite a idade.");
 	idade = ler.nextInt();
 	e.setIdade(idade);
 	
-	System.out.println("Para continuar presse 1!");
+	System.out.println("Quantos filhos tem o avô?");
+	numfilhos = ler.nextInt();
+		
+	ArrayList<Elemento> filhos = new ArrayList<Elemento>(numfilhos); 
+	e.setFilhos(filhos);
+	for(int i=0; i<numfilhos;i++) {
+		System.out.println("Digite o nome do seu familiar. (Agora nomeie os filhos do avô)");
+		n = ler.next();
+		e.setNome(n);
+		
+		System.out.println("Digite a idade.");
+		idade = ler.nextInt();
+		e.setIdade(idade);
+	
+		filhos.add(new Elemento(idade, n));
+		
+	}
+	
+	
+	System.out.println("Para continuar prima 1!");
 	escolha= ler.nextInt();
+	
 	
 	switch(escolha){
 	case 0:break;
@@ -80,28 +100,39 @@ public void menuArvoreGenealogica() {
 public void menuFilho() {
 	String n=null;
 	int id=0, idade=0;	
-	int	escolha = 0;
-	Elemento e = new Elemento(id,idade,n);
+	int	escolha = 0, numnetos =0;
+	Elemento e = new Elemento();
 	do {
-		System.out.println("Menu Filhos do Avô");
+		System.out.println("Menu Netos do Avô");
 		
 		System.out.println("\nNovo membro da família \n");
+	
+		System.out.println("Quantos filhos tem este pai?");
+		numnetos = ler.nextInt();
 		
-		System.out.println("\nDigite o nome do seu familiar. (Agora nomeie os filhos do avô)");
-		n = ler.next();
-		e.setNome(n);
+		ArrayList<Elemento> netos = new ArrayList<Elemento>(numnetos); 
+		e.setNetos(netos);
+		for(int i=0; i<numnetos;i++) {
+			System.out.println("Digite o nome do seu familiar. (Agora nomeie os netos do avô)");
+			n = ler.next();
+			e.setNome(n);
+			
+			System.out.println("Digite a idade.");
+			idade = ler.nextInt();
+			e.setIdade(idade);
 		
+			netos.add(new Elemento(idade, n));
+			
+		} 
 		
-		System.out.println("Digite a idade.");
-		idade = ler.nextInt();
-		e.setIdade(idade);
-		
-		System.out.println("Para continuar prima 1!");
+		System.out.println("O irmão tem filhos?");
+		System.out.println("1-Sim");
+		System.out.println("2-Não");
 		escolha=ler.nextInt();
 		
 		switch(escolha){
-		case 0:break;
-		case 1:menuAvo();break;
+		case 1:menuFilho();break;
+		case 2:menuInicial();break;
 		
 		default: System.out.println("Opção inválida");
 		}
@@ -111,102 +142,18 @@ public void menuFilho() {
 public void menuAvo() {
 	int escolha = 0;
 	do {
-		System.out.println("\nO avô tem mais filhos?");
+		System.out.println("\nO avô tem netos?");
 		System.out.println("1-Sim");
-		System.out.println("2-Não");
-		System.out.println("3-Não, mas tem netos.\n");
+		System.out.println("2-Não (ou não tem mais irmãos)");
 		escolha=ler.nextInt();
 		
 		switch(escolha){
 		case 0:break;
 		case 1:menuFilho();break;
 		case 2:menuInicial();break;
-		case 3:menuNeto();break;
 		
 		default: System.out.println("Opção inválida");
 		}
-		
-	}while(escolha != 0);
-}
-public void menuNeto() {
-	String n=null;
-	int id=0, idade=0;	
-	int	escolha = 0;
-	Elemento e = new Elemento(id,idade,n);
-	do {
-		System.out.println("Menu Netos do Avô");
-		
-		System.out.println("\nNovo membro da família \n");
-		
-		System.out.println("\nDigite o nome do seu familiar. (Agora nomeie os netos do avô)");
-		n = ler.next();
-		e.setNome(n);
-		
-		
-		System.out.println("Digite a idade.");
-		idade = ler.nextInt();
-		e.setIdade(idade);
-
-		System.out.println("Para continuar presse 1!");
-		escolha=ler.nextInt();
-		
-		switch(escolha){
-		case 0:break;
-		case 1:menuPai();break;
-		default: System.out.println("Opção inválida");
-		}
-		
-		
-	}while(escolha != 0);
-}
-public void menuPai() {
-	int escolha = 0;
-	do {
-		System.out.println("\nEsse pai tem mais filhos?");
-		System.out.println("1-Sim");
-		System.out.println("2-Não");
-		System.out.println("3-Não, mas os irmãos desse pai têm filhos.\n");
-		escolha=ler.nextInt();
-		
-		switch(escolha){
-		case 0:break;
-		case 1:menuNeto();break;
-		case 2:menuInicial();break;
-		case 3:menuNetoTio();break;
-		
-		default: System.out.println("Opção inválida");
-		}
-		
-	}while(escolha != 0);
-}
-public void menuNetoTio() {
-	String n=null;
-	int id=0, idade=0;	
-	int	escolha = 0;
-	Elemento e = new Elemento(id,idade,n);
-	do {
-		System.out.println("Menu Netos do Avô");
-		
-		System.out.println("\nNovo membro da família \n");
-		
-		System.out.println("\nDigite o nome do seu familiar. (Agora nomeie os netos do avô)");
-		n = ler.next();
-		e.setNome(n);
-		
-		
-		System.out.println("Digite a idade.");
-		idade = ler.nextInt();
-		e.setIdade(idade);
-
-		System.out.println("Para continuar prima 1!");
-		escolha=ler.nextInt();
-		
-		switch(escolha){
-		case 0:break;
-		case 1:menuPai();break;
-		default: System.out.println("Opção inválida");
-		}
-		
 		
 	}while(escolha != 0);
 }

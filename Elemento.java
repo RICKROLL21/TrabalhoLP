@@ -1,3 +1,5 @@
+
+
 import java.util.ArrayList;
 
 public class Elemento {
@@ -7,6 +9,9 @@ public class Elemento {
 	private String nome;
 	private Elemento raiz;
 	private ArrayList <Elemento> filhos;
+	private int numFilhos;
+	private ArrayList <Elemento> netos;
+	private int numNetos;
 	
 	// Acessores
 	
@@ -15,7 +20,7 @@ public class Elemento {
 	}
 	
 	public Elemento setRaiz(Elemento raiz) {
-		return this.raiz = raiz;
+		this.raiz = raiz;
 	}
 	
 	public int getIdade() {
@@ -48,14 +53,31 @@ public class Elemento {
 	public void setFilhos(ArrayList <Elemento> filhos) {
 		this.filhos = filhos;
 	}
+	public void setNumFilhos(int numFilhos) {
+		this.numFilhos = numFilhos;
+	}
+	
+	public ArrayList <Elemento> getNetos() {
+		return netos;
+	}
+	public void setNetos(ArrayList <Elemento> netos) {
+		this.netos = netos;
+	}
+	public void setNumNetos(int numNetos) {
+		this.numNetos = numNetos;
+	}
 	
 	
 	// Construtor
-	public Elemento (int idElemento,int idadeElemento, String nomeElemento) {
+	public Elemento (int idadeElemento, String nomeElemento) {
 	
 		this.nome = nomeElemento;
 		this.idade = idadeElemento;
-		this.id = idElemento;
+		
+	}
+	
+	public Elemento () {
+		
 	}
 	
 	
@@ -65,20 +87,30 @@ public class Elemento {
 	}
 	
 	
-/*	public Elemento getElemento(int id){
-	    return getElementoRecursive(raiz,id);
+	public Elemento getElementoFilhos(int id){
+	    return getElementoRecursiveFilhos(raiz,id);
 	}
 
-	private Elemento getElementoRecursive(Elemento Node, int id){
-	    if(Elemento.getId() == id) return Elemento;
-	    for(Elemento filho : Elemento.getFilhos()){
-	        Elemento temp = getElementoRecursive(filho,id);
-	        if(temp != null && temp.getId() == id) return filho;
+
+	private Elemento getElementoRecursiveFilhos(Elemento elemento, int indexDoArrayList){
+	    if(elemento.getId() == id) return elemento;
+	    for(Elemento filho : elemento.getFilhos()){
+	        Elemento temp = getElementoRecursiveFilhos(filho,indexDoArrayList);
+	        if(temp != null && temp.getId() == indexDoArrayList) return filho;
 	    }
 	    return null;
-	}*/
-	    
-	 
+	}
 	
-
+	public Elemento getElementoNetos(int id) {
+		return getElementoRecursiveNetos(raiz, id);
+	}
+	private Elemento getElementoRecursiveNetos(Elemento elemento, int indexDoArrayListNeto){
+	    if(elemento.getId() == id) return elemento;
+	    for(Elemento filho : elemento.getFilhos()){
+	        Elemento temp = getElementoRecursiveFilhos(filho,indexDoArrayListNeto);
+	        if(temp != null && temp.getId() == indexDoArrayListNeto) return netos;
+	    }
+	    return null;
+	}
 }
+
