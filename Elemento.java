@@ -5,9 +5,18 @@ public class Elemento {
 	
 	private int idade, id;
 	private String nome;
+	private Elemento raiz;
 	private ArrayList <Elemento> filhos;
 	
 	// Acessores
+	
+	public Elemento getRaiz() {
+		return raiz;
+	}
+	
+	public Elemento setRaiz(Elemento raiz) {
+		this.raiz = raiz;
+	}
 	
 	public int getIdade() {
         return idade;
@@ -55,6 +64,20 @@ public class Elemento {
 		return "[id=" + id + ", nome=" + nome + ", idade=" + idade + "]";
 	}
 	
+	
+	public Elemento getElemento(int id){
+	    return getElementoRecursive(raiz,id);
+	}
+
+
+	private Elemento getElementoRecursive(Elemento Node, int id){
+	    if(Elemento.getId() == id) return Elemento;
+	    for(Elemento filho : Elemento.getFilhos()){
+	        Elemento temp = getElementoRecursive(filho,id);
+	        if(temp != null && temp.getId() == id) return filho;
+	    }
+	    return null;
+	}
 	    
 	 
 	

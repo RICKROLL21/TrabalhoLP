@@ -8,9 +8,20 @@ import java.util.ArrayList;
 	    private int tamanho;
 	    
 	   public Elemento procurar(int id, Elemento no){
+		   if (no == null){
+		        return null;
+		    }else {
+		    	if (no.getFilhos()==id){
+		            return procurar(id, raiz.getFilhos());
+		    }else if (no.getFilhos()==id){
+	            return procurar(id, no.getFilhos());
+	        }else{
+	            System.out.println(no.getValor()==id);
+	    }
+	    return no;
+	    }
 		
 		
-		}
 	    
 
 	    
