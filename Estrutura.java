@@ -29,7 +29,7 @@ public void menuInicial() {
 }
 public void menuCriacaoArvoreGen() {
 	String n=null;
-	int id=0, idade=0;	
+	int idade=0;	
 	int	escolha = 0, numfilhos = 0;
 	Elemento e = new Elemento();
 	
@@ -58,6 +58,7 @@ public void menuCriacaoArvoreGen() {
 		e.setIdade(idade);
 	
 		filhos.add(new Elemento(idade, n));
+		System.out.println(filhos.toString());
 		
 	}
 	
@@ -100,7 +101,7 @@ public void menuArvoreGenealogica() {
 }
 public void menuFilho() {
 	String n=null;
-	int id=0, idade=0;	
+	int idade=0;	
 	int	escolha = 0, numnetos =0;
 	Elemento e = new Elemento();
 	do {
@@ -123,6 +124,7 @@ public void menuFilho() {
 			e.setIdade(idade);
 		
 			netos.add(new Elemento(idade, n));
+			System.out.println(netos.toString());
 			
 		} 
 		

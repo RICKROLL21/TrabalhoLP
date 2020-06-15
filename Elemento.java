@@ -83,7 +83,7 @@ public class Elemento {
 	
 	@Override
 	public String toString() {
-		return "[id=" + id + ", nome=" + nome + ", idade=" + idade + "]";
+		return "[nome=" + nome + ", idade=" + idade + "]";
 	}
 	
 	
