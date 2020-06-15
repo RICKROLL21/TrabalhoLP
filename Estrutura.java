@@ -48,6 +48,8 @@ public void menuCriacaoArvoreGen() {
 		
 	ArrayList<Elemento> filhos = new ArrayList<Elemento>(numfilhos); 
 	e.setFilhos(filhos);
+	//filhos.setFilhos(filhos);
+	
 	for(int i=0; i<numfilhos;i++) {
 		System.out.println("Digite o nome do seu familiar. (Agora nomeie os filhos do avô)");
 		n = ler.next();
