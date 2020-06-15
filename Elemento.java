@@ -19,7 +19,7 @@ public class Elemento {
 		return raiz;
 	}
 	
-	public Elemento setRaiz(Elemento raiz) {
+	public void setRaiz(Elemento raiz) {
 		this.raiz = raiz;
 	}
 	
@@ -90,13 +90,11 @@ public class Elemento {
 	public Elemento getElementoFilhos(int id){
 	    return getElementoRecursiveFilhos(raiz,id);
 	}
-
-
-	private Elemento getElementoRecursiveFilhos(Elemento elemento, int indexDoArrayList){
+	Elemento getElementoRecursiveFilhos(Elemento elemento, int indexDoArrayListFilho){
 	    if(elemento.getId() == id) return elemento;
 	    for(Elemento filho : elemento.getFilhos()){
-	        Elemento temp = getElementoRecursiveFilhos(filho,indexDoArrayList);
-	        if(temp != null && temp.getId() == indexDoArrayList) return filho;
+	        Elemento temp = getElementoRecursiveFilhos(filho,indexDoArrayListFilho);
+	        if(temp != null && temp.getId() == indexDoArrayListFilho) return filho;
 	    }
 	    return null;
 	}
@@ -108,7 +106,7 @@ public class Elemento {
 	    if(elemento.getId() == id) return elemento;
 	    for(Elemento filho : elemento.getFilhos()){
 	        Elemento temp = getElementoRecursiveFilhos(filho,indexDoArrayListNeto);
-	        if(temp != null && temp.getId() == indexDoArrayListNeto) return netos;
+	        
 	    }
 	    return null;
 	}

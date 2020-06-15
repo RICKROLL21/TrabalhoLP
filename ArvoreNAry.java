@@ -29,5 +29,9 @@ public interface ArvoreNAry {
 		 */
 		public int[] preOrder();
 		
+		public Elemento getElementoRecursiveFilhos(Elemento elemento,int id); 
+		
+		public Elemento getElementoRecursiveNetos(Elemento elemento, int indexDoArrayListNeto);
+		
 	
 }

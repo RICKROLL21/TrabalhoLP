@@ -44,7 +44,7 @@ import java.util.ArrayList;
 	        if ( raiz != null) 	
 	            throw new IllegalStateException();
 
-	        raiz = new Elemento(id, idade, nome);
+	        raiz = new Elemento(idade, nome);
 	        tamanho = 1; 
 	        
 	        return raiz;
@@ -56,7 +56,7 @@ import java.util.ArrayList;
 	        if ( pai == null) {
 	            throw new NullPointerException();
 	    	}else{
-	        Elemento temporario = new Elemento(id, idade, nome);
+	        Elemento temporario = new Elemento(idade, nome);
 	        pai.getFilhos().add(temporario);
 	        tamanho ++; 
 
@@ -93,6 +93,20 @@ import java.util.ArrayList;
 		}
 		@Override
 		public int[] preOrder() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+		@Override
+		public Elemento getElementoRecursiveFilhos(Elemento elemento, int id) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+		@Override
+		public Elemento getElementoRecursiveNetos(Elemento elemento, int indexDoArrayListNeto) {
 			// TODO Auto-generated method stub
 			return null;
 		}
